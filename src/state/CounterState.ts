@@ -6,7 +6,7 @@ interface Counter {
   decreaseCount: () => void;
 }
 
-export const CounterState = create<Counter>((set) => ({
+export const CounterState = create<Counter>()((set) => ({
   count: 0,
   increaseCount: () => set((state) => ({ count: state.count + 1 })),
   decreaseCount: () =>

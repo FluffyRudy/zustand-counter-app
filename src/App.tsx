@@ -1,9 +1,23 @@
 import "./App.css";
+import { motion } from "framer-motion";
 import Counter from "./components/Counter";
 
 function App() {
+  const opacityAnimation = {
+    hidden: { opacity: 0, x: -100 },
+    show: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        duration: 0.5,
+      },
+    },
+  };
   return (
-    <>
+    <motion.div
+      variants={opacityAnimation}
+      initial='hidden'
+      animate='show'>
       <Counter />
       <h2 style={{ margin: "0", marginTop: "5vmax" }}>Bored ? Try Something</h2>
       <ul>
@@ -39,7 +53,7 @@ function App() {
           <a
             target='_blank'
             href='https://github.com/FluffyRudy?tab=repositories'>
-            Checkout Some beginner projects I made
+            Checkout Some basic projects I made
           </a>
         </li>
         <li>
@@ -50,7 +64,7 @@ function App() {
           </a>
         </li>
       </ul>
-    </>
+    </motion.div>
   );
 }
 
